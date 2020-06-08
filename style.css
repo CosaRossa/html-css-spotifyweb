@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+main {
+  display: flex;
+  height: calc(100vh - 90px);
+}
+
+#main-menu {
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* DEBUG:  */
+  background-color: red;
+}
+
+#logo {
+  height: 90px;
+  /* DEBUG:  */
+  background-color: green
+}
+
+#nav-left {
+  /* DEBUG:  */
+  height: 100px;
+  background-color: blue;
+}
+
+#playlist {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* DEBUG:  */
+  height: 250px;
+  background-color: violet;
+}
+
+#account {
+  justify-self: flex-end;
+  /* DEBUG:  */
+  background-color: pink;
+  height: 90px;
+}
+
+#main-scroll {
+  width: calc(100vw - 230px);
+  padding-top: 80px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* DEBUG:  */
+  background-color: green;
+}
+
+#pro {
+  position: fixed;
+  top: 0;
+  left: 230px;
+  width: calc(100vw - 230px);
+  height: 80px;
+  z-index: 2;
+  /* DEBUG:  */
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: right;
+}
+
+#pro .button {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 3%;
+}
+
+#pro .button a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+#nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  background-color: #444;
+}
+
+#nav ul {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#nav nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 9px;
+}
+
+#nav nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+#played {
+
+}
+
+#made {
+  /* DEBUG:  */
+  background-color: pink;
+  height: 250px;
+}
+
+#artist {
+  /* DEBUG:  */
+  background-color: yellow;
+  height: 250px;
+}
+
+.row-items {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.song-item {
+  width: calc(100% / 6);
+  min-width: 150px;
+}
+
+.song-item img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.song-item .layover {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+
+footer {
+  width: 100vw;
+  height: 90px;
+  z-index: 3;
+  /* DEBUG:  */
+  background-color: blue;
+}
+
+@media screen and (max-height:180px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
