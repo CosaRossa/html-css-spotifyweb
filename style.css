@@ -15,20 +15,54 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* DEBUG:  */
-  background-color: red;
+  background-color: black;
+  position: relative;
 }
 
 #logo {
   height: 90px;
-  /* DEBUG:  */
-  background-color: green
+  position: relative;
 }
 
-#nav-left {
-  /* DEBUG:  */
-  height: 100px;
-  background-color: blue;
+#logo img {
+  width: 115px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+}
+
+#nav-left li {
+  margin-left: 45px;
+  position: relative;
+  line-height: 1.7rem;
+}
+
+#nav-left ul li .green {
+  width: 2px;
+  height: 28px;
+  background-color: #1DB954;
+  position: absolute;
+  top: 50%;
+  left: -6%;
+  transform: translateY(-50%);
+}
+
+#nav-left img {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+}
+
+#nav-left a {
+  color: #888;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+#nav-left a:hover {
+  color: #fff;
 }
 
 #playlist {
@@ -36,13 +70,16 @@ main {
   overflow-y: scroll;
   /* DEBUG:  */
   height: 250px;
-  background-color: violet;
+  border: 1px solid #fff;
 }
 
 #account {
-  justify-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   /* DEBUG:  */
-  background-color: pink;
+  border: 1px solid #fff;
   height: 90px;
 }
 
@@ -51,8 +88,7 @@ main {
   padding-top: 80px;
   overflow-x: hidden;
   overflow-y: scroll;
-  /* DEBUG:  */
-  background-color: green;
+  background-color: rgb(18,18,26);
 }
 
 #pro {
@@ -62,20 +98,24 @@ main {
   width: calc(100vw - 230px);
   height: 80px;
   z-index: 2;
-  /* DEBUG:  */
   background-color: rgba(0, 0, 0, 0.5);
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #pro .button {
   border-radius: 20px;
   border: 2px solid #fff;
   padding: 10px 20px;
+  margin-right: 20px;
   display: inline-block;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 3%;
+  transition: all 0.3s;
+}
+
+#pro .button:hover {
+  transform: scale(1.1, 1.1);
 }
 
 #pro .button a {
@@ -89,11 +129,11 @@ main {
   justify-content: center;
   align-items: center;
   height: 70px;
-  background-color: #444;
 }
 
 #nav ul {
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -101,28 +141,45 @@ main {
   list-style: none;
   display: inline-block;
   padding: 0 9px;
+  position: relative;
 }
 
 #nav nav li a {
-  color: #fff;
+  color: #888;
   text-decoration: none;
   font-size: 12px;
 }
 
-#played {
-
+#nav nav li a:hover {
+  color: #fff;
 }
 
-#made {
-  /* DEBUG:  */
-  background-color: pink;
-  height: 250px;
+#nav nav li .green {
+  width: 30px;
+  height: 2px;
+  background-color: #1DB954;
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-#artist {
-  /* DEBUG:  */
-  background-color: yellow;
-  height: 250px;
+h3 {
+  color: #fff;
+  font-size: 25px;
+  padding: 10px 0 20px 15px;
+}
+
+h5 {
+  color: #fff;
+  padding: 10px 0 2px;
+}
+
+small {
+  color: #888;
+  font-weight: 300;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .row-items {
@@ -133,26 +190,92 @@ main {
 .song-item {
   width: calc(100% / 6);
   min-width: 150px;
+  position: relative;
+  text-align: center;
 }
 
-.song-item img {
+.container {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.song-item img{
+  display: block;
   width: 100%;
   height: auto;
-  margin: 0 auto;
 }
 
 .song-item .layover {
-  width: 90%;
-  height: auto;
-  margin: 0 auto;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.song-item .layover .play {
+  color: #eee;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container:hover > .layover {
+  opacity: 1;
+}
+
+#made h3,
+#artist h3 {
+  padding-bottom: 0px;
+}
+
+#made small,
+#artist small {
+  margin: 0px 0 15px 20px;
+}
+
+#made h5,
+#artist h5 {
+  margin-bottom: 20px;
+}
+
+#artist .song-item img{
+  border-radius: 50%;
+}
+
+#artist .song-item .layover {
+  border-radius: 50%;
 }
 
 footer {
+  display: flex;
+  justify-content: space-between;
   width: 100vw;
   height: 90px;
-  z-index: 3;
-  /* DEBUG:  */
-  background-color: blue;
+  z-index: 10;
+  background-color: rgb(40, 40, 40);
+}
+
+.player-left,
+.player-right {
+  height: 100%;
+  width: 200px;
+  border: 1px solid #fff;
+}
+
+.player-center {
+  height: 100%;
+  width: 35%;
+  border: 1px solid #fff;
 }
 
 @media screen and (max-height:180px) {
