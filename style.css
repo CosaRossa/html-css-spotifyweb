@@ -10,6 +10,10 @@ main {
   height: calc(100vh - 90px);
 }
 
+#main-menu .block532 {
+  display: none;
+}
+
 #main-menu {
   width: 230px;
   display: flex;
@@ -68,9 +72,40 @@ main {
 #playlist {
   overflow-x: hidden;
   overflow-y: scroll;
-  /* DEBUG:  */
-  height: 250px;
-  border: 1px solid #fff;
+  padding: 25px 0 0 40px;
+}
+
+#playlist h4 {
+  color: #fff;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+#playlist .new-playlist {
+  margin-bottom: 7px;
+}
+
+#playlist li {
+  line-height: 1.8rem;
+}
+
+#playlist a {
+  color: #888;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+#playlist i {
+  font-size: 35px;
+  vertical-align: middle;
+}
+
+#playlist span {
+  font-size: 15px;
+}
+
+#playlist a:hover {
+  color: #fff;
 }
 
 #account {
@@ -78,11 +113,41 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  /* DEBUG:  */
-  border: 1px solid #fff;
-  height: 90px;
+  padding: 10px;
 }
 
+#account small {
+  margin-bottom: 0;
+}
+
+#account .installa {
+  padding-bottom: 7px;
+  border-bottom: 1px solid #888;
+}
+
+#account .installa i {
+  color: #fff;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+#account #jonh {
+  padding-top: 10px;
+}
+
+#account #jonh i {
+  font-size: 20px;
+  color: #888;
+  vertical-align: middle;
+}
+
+#account span {
+  font-size: 14px;
+  color: #fff;
+}
+
+
+/* SCROLL PART */
 #main-scroll {
   width: calc(100vw - 230px);
   padding-top: 80px;
@@ -91,6 +156,7 @@ main {
   background-color: rgb(18,18,26);
 }
 
+/* Sezione fixed con bottone */
 #pro {
   position: fixed;
   top: 0;
@@ -124,6 +190,7 @@ main {
   font-size: 13px;
 }
 
+/* NAV centrale */
 #nav {
   display: flex;
   justify-content: center;
@@ -164,6 +231,7 @@ main {
   transform: translateX(-50%);
 }
 
+/* PARTE PRINCIPALE */
 h3 {
   color: #fff;
   font-size: 25px;
@@ -187,6 +255,7 @@ small {
   flex-flow: row wrap;
 }
 
+/* TO MAKE LAYOVERS WORK */
 .song-item {
   width: calc(100% / 6);
   min-width: 150px;
@@ -233,6 +302,7 @@ small {
   opacity: 1;
 }
 
+/* Sezione Made e Artist */
 #made h3,
 #artist h3 {
   padding-bottom: 0px;
@@ -271,6 +341,7 @@ footer small {
   margin-bottom: 0;
 }
 
+/* Sezione Sinistra e Destra */
 .player-left,
 .player-right {
   height: 100%;
@@ -279,6 +350,7 @@ footer small {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  flex-shrink: 0;
 }
 
 .player-left .brano {
@@ -322,7 +394,7 @@ footer small {
 }
 
 .player-center .comandi {
-  width: 55%;
+  width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -349,6 +421,7 @@ footer small {
 .volume {
   position: relative;
   width: 40%;
+  padding: 5px 0;
 }
 
 .fa-circle {
@@ -392,6 +465,46 @@ footer small {
 .durata:hover .fa-circle,
 .volume:hover .fa-circle {
   display: block;
+}
+
+@media screen and (max-width:744px) {
+  .player-left,
+  .player-right {
+    flex-shrink: 1;
+  }
+}
+
+@media screen and (max-width:532px) {
+  #main-menu {
+    width: 50px;
+  }
+
+  #main-menu img.block532 {
+    width: 50%;
+    margin: 15px auto;
+  }
+
+  #nav-left li {
+  margin-left: 15px;
+  }
+
+  #main-scroll,
+  #pro {
+    width: calc(100vw - 50px)
+  }
+
+  #pro {
+    left: 50px;
+  }
+
+  #main-menu .block532 {
+    display: block;
+  }
+
+  .under532 {
+    display: none;
+  }
+
 }
 
 @media screen and (max-height:180px) {
